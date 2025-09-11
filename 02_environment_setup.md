@@ -18,7 +18,7 @@
 
 
 
-\\# 创建一个名为 yolo\\\_env 的新环境，并安装 Python 3.9
+\\# 创建一个名为 yolo_env 的新环境，并安装 Python 3.9
 输入
 conda create -n yolo_env python=3.9
 
