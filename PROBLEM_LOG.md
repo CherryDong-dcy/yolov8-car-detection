@@ -22,7 +22,7 @@
 
 \-   \*\*现象\*\*:
 
-    安装Anaconda时，弹窗提示：`A Python installation has been found on your system at C:\\\\\\\\fakeD\\\\\\\\python\\\\\\\\python3\\\\\\\\...`
+    安装Anaconda时，弹窗提示：`A Python installation has been found on your system at D:\Python\Python3
 
 \-   \*\*原因分析\*\*:
 
@@ -34,7 +34,7 @@
 
     2.  进入`设置` -> `应用` -> `应用和功能`，找到并卸载旧的Python。
 
-    3.  如果找不到，直接去文件资源管理器删除提示中的目录（`C:\\\\\\\\fakeD\\\\\\\\python\\\\\\\\`）。
+    3.  如果找不到，直接去文件资源管理器删除提示中的目录（`D:\Python\Python3`）。
 
     4.  重新运行Anaconda安装程序，顺利通过。
 
@@ -58,7 +58,7 @@
 
 \-   \*\*时间\*\*: 2025年9月8日
 
-\-   \*\*环境\*\*: Conda `yolo\\\\\\\_env`, RTX 5060
+\-   \*\*环境\*\*: Conda `yolo_env`, RTX 5060
 
 \-   \*\*错误信息\*\*:
 
@@ -66,7 +66,7 @@
 
 \-   \*\*现象\*\*:
 
-    `torch.cuda.is\\\\\\\_available()` 返回 `True`，但一开始训练就报错。
+    `torch.cuda.is_available()` 返回 `True`，但一开始训练就报错。
 
 \-   \*\*原因分析\*\*:
 
@@ -94,7 +94,7 @@
 
 **以下问题解决方法较简单或前文有所提及，不再展开叙述**
 
-| \*\*3. 训练时字体下载失败\*\* | `ConnectionError: Download failure for https://ultralytics.com/assets/Arial.ttf` | 网络无法访问Ultralytics海外服务器 | 在运行训练命令前，在终端执行 `\\\*\\\*set ULTRALYTICS\\\\\\\_FONT=arial.ttf\\\*\\\*`，强制使用系统字体。 |
+| \*\*3. 训练时字体下载失败\*\* | `ConnectionError: Download failure for https://ultralytics.com/assets/Arial.ttf` | 网络无法访问Ultralytics海外服务器 | 在运行训练命令前，在终端执行 `set ULTRALYTICS_FONT=arial.ttf`，强制使用系统字体。 |
 
 | \*\*4. 小样本过拟合\*\* | 模型在训练集上损失下降，但在新图片上无法预测出任何结果 | 训练数据量极少（仅5张），模型无法学习泛化特征 | \*\*调整策略\*\*：承认泛化不现实，转而追求“过拟合”。<br>\*\*方案\*\*：大幅增加训练轮数(`epochs=500`)，减小批量大小(`batch=1`)，关闭早停(`patience=500`)，让模型强行记住训练样本。 |
 
@@ -103,44 +103,34 @@
 6.不小心关闭了Anaconda prompt
 
 ✅ 解决方案
-
 重新打开 Anaconda Prompt
-
-
 
 在Windows开始菜单里找到并点击 “Anaconda Prompt”。
 
-
-
 重新激活你的工作环境
 
+你会看到命令行开头是 (base) C:\Users\28128>。
 
+输入以下命令，即可回到你之前的 yolo_env 环境：
 
+bash
+conda activate yolo_env
+成功之后，命令行的前缀会从 (base) 变回 (yolo_env)。
 
-
-输入以下命令，即可回到你之前的 yolo\_env 环境：
-
-
-
-**conda activate yolo\_env**
-
-成功之后，命令行的前缀会从 (base) 变回 (yolo\_env)。
-
-
+https://docs.conda.io/projects/conda/en/latest/_images/activate-env.gif
 
 🔍 验证一下（可选）
-
 为了确保万无一失，你可以验证一下PyTorch和GPU是否依然可用：
 
 
-
-**python -c "import torch; print('环境:', 'yolo\_env'); print('GPU可用:', torch.cuda.is\_available())"**
-
+python -c "import torch; print('环境:', 'yolo_env'); print('GPU可用:', torch.cuda.is_available())"
 💡 核心要点记住
-
 (base)： 是Anaconda的默认基础环境，我们一般不直接在里面干活。
 
+(yolo_env)： 是你为自己项目创建的“独立工作间”，所有工具（PyTorch, YOLOv8）都安装在这里。以后每次开工前，都需要先执行 conda activate yolo_env 进入这个工作间。
 
+现在，你就可以继续你之前的训练了！直接运行你的训练命令即可：
 
-(yolo\_env)： 是你为自己项目创建的“独立工作间”，所有工具（PyTorch, YOLOv8）都安装在这里。以后每次开工前，都需要先执行 conda activate yolo\_env 进入这个工作间。
-
+bash
+yolo task=detect mode=train model=yolov8n.pt data=car_dataset.yaml epochs=100 imgsz=640 batch=2 patience=15
+总结：什么都没丢，只是需要重新打开门进入你的工作间而已。
