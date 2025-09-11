@@ -117,7 +117,7 @@ bash
 conda activate yolo_env
 成功之后，命令行的前缀会从 (base) 变回 (yolo_env)。
 
-https://docs.conda.io/projects/conda/en/latest/_images/activate-env.gif
+
 
 🔍 验证一下（可选）
 为了确保万无一失，你可以验证一下PyTorch和GPU是否依然可用：
