@@ -8,21 +8,21 @@
 
 
 
-在你的 `yolo\\\_env` 环境中安装：
+在你的 `yolo_env` 环境中安装：
 
 输入
 
-**pip install labelImg**
+pip install labelImg
 
 
 
 3.2 启动与使用
 
-bash
 
-\# 安装后，直接输入命令启动
 
-**labelImg**
+安装后，直接输入命令启动
+
+labelImg
 
 
 
@@ -34,7 +34,7 @@ bash
 
 
 
-yolo\_project  (你的项目根目录，名字可自取)
+yolo_project  (你的项目根目录，名字可自取)
 
             ├── datasets
 
@@ -52,7 +52,7 @@ yolo\_project  (你的项目根目录，名字可自取)
 
             │           └── val    (验证集标注)
 
-            └── car\_dataset.yaml  (数据集配置文件)
+            └── car_dataset.yaml  (数据集配置文件)
 
 📝 第二步：分配你的图片
 
@@ -86,7 +86,7 @@ yolo\_project  (你的项目根目录，名字可自取)
 
 注意：确保图片文件（.jpg）和标注文件（.txt）文件名必须完全相同（只有后缀不同）。
 
-例如：image\_001.jpg 对应的标注文件必须是 image\_001.txt。
+例如：image_001.jpg 对应的标注文件必须是 image_001.txt。
 
 
 
