@@ -4,7 +4,7 @@
 
 
 
-**所有命令均在 \*\*Anaconda Prompt\*\* 中执行。所有输入代码用粗体呈现。**
+**所有命令均在Anaconda Prompt中执行。
 
 
 
@@ -12,17 +12,15 @@
 
 
 
-我们创建一个独立的环境，名为 `yolo\\\_env`。
+我们创建一个独立的环境，名为 `yolo_env`。
 
 
 
-```bash
+
 
 \\# 创建一个名为 yolo\\\_env 的新环境，并安装 Python 3.9
-
 输入
-
-\*\*conda create -n yolo\\\_env python=3.9\*\*
+conda create -n yolo_env python=3.9
 
 
 
@@ -34,7 +32,7 @@ conda create -n：创建一个新环境。
 
 
 
-yolo\\\_env：环境名称，可以自定义。
+yolo_env：环境名称，可以自定义。
 
 
 
@@ -42,15 +40,15 @@ python=3.9：指定环境中Python的版本。
 
 
 
-执行命令后，会提示 Proceed (\\\[y]/n)?，直接按 y 回车确认。
+执行命令后，会提示 Proceed ([y]/n)?，直接按 y 回车确认。
 
 
 
-\\# 激活刚刚创建的环境
+# 激活刚刚创建的环境
 
 输入
 
-\*\*conda activate yolo\\\_env\*\*
+conda activate yolo_env
 
 命令解释：
 
@@ -68,7 +66,7 @@ conda activate：激活一个环境。激活后，命令行的前缀会从 (base
 
 输入
 
-\*\*pip install ultralytics\*\*
+pip install ultralytics
 
 
 
@@ -78,7 +76,7 @@ conda activate：激活一个环境。激活后，命令行的前缀会从 (base
 
 输入
 
-\*\*pip install ultralytics\*\*
+pip install ultralytics
 
 
 
@@ -90,22 +88,17 @@ conda activate：激活一个环境。激活后，命令行的前缀会从 (base
 
 输入
 
-\*\*python\*\*
+python
 
 
 
 \\# 在打开的Python环境中，逐行输入以下代码
 
->>> \*\*import torch\*\*
-
->>> \*\*import ultralytics\*\*
-
->>> \*\*print(torch.\\\_\\\_version\\\_\\\_)\*\* # 打印PyTorch版本
-
->>> \*\*print(ultralytics.\\\_\\\_version\\\_\\\_)\*\* # 打印YOLOv8版本
-
->>> \*\*exit()\*\* # 退出Python交互界面
-
+import torch
+import ultralytics
+print(torch.__version__)
+print(ultralytics.__version__)
+exit()
 
 
 如果所有命令都没有报错，则说明环境配置成功！
