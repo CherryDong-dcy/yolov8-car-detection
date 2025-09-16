@@ -60,7 +60,7 @@ imgsz=640: 输入图像的尺寸。图像会被缩放和填充至 640x640 像素
 
 输入
 
-**yolo task=detect mode=train model=yolov8n.pt data=car\_dataset.yaml epochs=500 imgsz=1280 batch=1 device=cpu patience=500 lr0=0.01**
+**yolo task=detect mode=train model=yolov8n.pt data=car\_datasets.yaml epochs=500 imgsz=1280 batch=1 device=cpu patience=500 lr0=0.01**
 
 新增参数解释：
 
