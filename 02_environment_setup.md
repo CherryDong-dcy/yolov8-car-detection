@@ -94,15 +94,15 @@ python
 
 \\# 在打开的Python环境中，逐行输入以下代码
 
-import torch
+'''import torch'''
 
-import ultralytics
+'''import ultralytics'''
 
-print(torch.__version__)
+'''print(torch.__version__)'''
 
-print(ultralytics.__version__)
+'''print(ultralytics.__version__)'''
 
-exit()
+'''exit()'''
 
 
 如果所有命令都没有报错，则说明环境配置成功！
