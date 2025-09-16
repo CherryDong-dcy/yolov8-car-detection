@@ -12,7 +12,7 @@
 
 输入
 
-pip install labelImg
+**pip install labelImg**
 
 
 
@@ -22,7 +22,7 @@ pip install labelImg
 
 安装后，直接输入命令启动
 
-labelImg
+**labelImg**
 
 
 
