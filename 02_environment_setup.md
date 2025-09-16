@@ -95,9 +95,13 @@ python
 \\# 在打开的Python环境中，逐行输入以下代码
 
 import torch
+
 import ultralytics
+
 print(torch.__version__)
+
 print(ultralytics.__version__)
+
 exit()
 
 
