@@ -48,15 +48,11 @@ python=3.9：指定环境中Python的版本。
 
 输入
 
-conda activate yolo_env
+**conda activate yolo_env**
 
 命令解释：
 
-
-
 conda activate：激活一个环境。激活后，命令行的前缀会从 (base) 变为 (yolo\\\_env)。这意味着你后续安装的所有库都会被隔离在这个环境中。
-
-
 
 2.2 安装 PyTorch
 
@@ -64,8 +60,8 @@ conda activate：激活一个环境。激活后，命令行的前缀会从 (base
 
 官网会生成一条命令，大概率类似于下面这样（但请以官网生成的最新命令为准）：
 
+**pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu126**
 
-conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
 将这条命令复制到你的 Anaconda Prompt 中运行。
 
 2.3 安装 YOLOv8
@@ -74,7 +70,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
 
 输入
 
-pip install ultralytics
+**pip install ultralytics**
 
 
 
@@ -86,9 +82,7 @@ pip install ultralytics
 
 输入
 
-python
-
-
+**python**
 
 \\# 在打开的Python环境中，逐行输入以下代码
 
