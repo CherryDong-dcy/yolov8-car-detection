@@ -96,19 +96,11 @@ last.pt：训练结束时的最后一个模型权重。
 
 **# 基本预测命令**
 
-**yolo task=detect mode=predict model=runs/detect/train4/weights/best.pt source='你的图片路径.jpg' conf=0.5**
+**yolo task=detect mode=predict model=runs/detect/train4/weights/best.pt source="你的图片路径.jpg" conf=0.5**
 
 
 
-**# 例子：预测单张图片**
 
-**yolo task=detect mode=predict model=runs/detect/train4/weights/best.pt source='你的图片路径.jpg' conf=0.5**
-
-
-
-**# 例子：预测一个文件夹下的所有图片**
-
-**yolo task=detect mode=predict model=runs/detect/train4/weights/best.pt source='文件夹地址/\*.jpg'**
 
 参数解释：
 
