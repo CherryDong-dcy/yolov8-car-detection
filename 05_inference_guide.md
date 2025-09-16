@@ -91,11 +91,6 @@ last.pt：训练结束时的最后一个模型权重。
 训练的最终目的是用模型识别新的图片。使用以下命令：
 
 
-
-
-
-**# 基本预测命令**
-
 **yolo task=detect mode=predict model=runs/detect/train4/weights/best.pt source="你的图片路径.jpg" conf=0.5 device=cpu imgsz=1280**
 
 
@@ -104,9 +99,9 @@ last.pt：训练结束时的最后一个模型权重。
 
 参数解释：
 
-
-
 conf=0.5：置信度阈值。只显示置信度高于50%的预测结果。你可以调高（如0.7）来减少误报，或调低（如0.3）来检测更多目标。
+
+device=cpu: 指定使用CPU进行训练，避免GPU兼容性问题。
 
 imgsz=1280 :对于较小的识别目标，将图片放大后再进行预测。
 
@@ -164,7 +159,7 @@ imgsz=1280 :对于较小的识别目标，将图片放大后再进行预测。
 
 \# 确保你的命令和这个类似，source替换成你的图片路径
 
-**yolo task=detect mode=predict model=runs/detect/train4/weights/best.pt source="你的测试图片路径.jpg" conf=0.25**
+**yolo task=detect mode=predict model=runs/detect/train4/weights/best.pt source="你的图片路径.jpg" conf=0.25 device=cpu imgsz=1280**
 
 关键参数：尝试降低置信度阈值 conf=0.25（甚至 conf=0.1）。模型可能不太自信，较高的阈值会过滤掉所有预测。
 
@@ -226,11 +221,9 @@ val\_batch0\_pred.jpg：
 
 
 
-大幅增加训练轮数：将 epochs 从100增加到500甚至1000。给小模型更多的时间去“记忆”这几张图片。
+大幅增加训练轮数：将 epochs和patience 从100增加到500。给小模型更多的时间去“记忆”这几张图片。
 
-
-
-**yolo task=detect mode=train model=yolov8n.pt data=car\_dataset.yaml epochs=1000 imgsz=640 batch=1 patience=50 device=cpu**
+**yolo task=detect mode=train model=yolov8n.pt data=D:datasets\car_datasets.yaml epochs=500 imgsz=640 batch=1 device=cpu patience=500 lr0=0.01**
 
 简化任务：确保你的图片中的物体（小车）非常突出、背景简单，并且标注框非常精确。
 
@@ -254,7 +247,7 @@ bash
 
 \# 使用非常低的置信度阈值，看看是否有任何输出
 
-**yolo task=detect mode=predict model=runs/detect/train4/weights/best.pt source="test.jpg" conf=0.01**
+**yolo task=detect mode=predict model=runs/detect/train4/weights/best.pt source="你的图片路径.jpg" conf=0.01 device=cpu imgsz=1280**
 
 如果设置 conf=0.01 后出现框了，就说明模型确实学到了东西，只是不够自信。然后你可以慢慢提高阈值，找到一个平衡点。
 
@@ -266,7 +259,7 @@ bash
 
 输入
 
-**yolo task=detect mode=predict model=runs/detect/train4/weights/best.pt source="训练集图片文件夹地址/\*.jpg" conf=0.01**
+**yolo task=detect mode=predict model=runs/detect/train4/weights/best.pt source="训练集图片文件夹地址/\*.jpg" conf=0.01 device=cpu imgsz=1280**
 
 如果这样能画出框：说明模型“记住”了训练集，但泛化能力很差（对新图片无效）。你需要更多数据。
 
@@ -292,7 +285,7 @@ bash
 
 如果你想实时查看预测结果（而不是只保存），可以添加 show=True 参数：
 
-**yolo task=detect mode=predict model=runs/detect/train4/weights/best.pt source="测试图片地址" conf=0.25 save=True show=True**
+**yolo task=detect mode=predict model=runs/detect/train4/weights/best.pt source="你的图片路径.jpg" conf=0.01 device=cpu imgsz=1280 save=True show=True**
 
 运行这个命令后，系统会弹出一个窗口显示带有预测框的图片，同时也会保存结果文件。
 
