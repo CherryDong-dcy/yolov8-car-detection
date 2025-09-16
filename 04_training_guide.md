@@ -18,7 +18,7 @@
 
 4.1 基础训练命令
 
-**yolo task=detect mode=train model=yolov8n.pt data=car\_dataset.yaml epochs=100 imgsz=640**
+**yolo task=detect mode=train model=yolov8n.pt data=car\_datasets.yaml epochs=100 imgsz=640**
 
 参数逐行解释：
 
