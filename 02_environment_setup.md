@@ -58,17 +58,15 @@ conda activate：激活一个环境。激活后，命令行的前缀会从 (base
 
 
 
-2.2 安装 PyTorch (CPU版本)
+2.2 安装 PyTorch
 
-对于新手和没有NVIDIA显卡的用户，先安装CPU版本是最稳妥的选择。
+安装PyTorch：
 
-\\# 安装 Ultralytics 库，其中包含了 YOLOv8
-
-输入
-
-pip install ultralytics
+官网会生成一条命令，大概率类似于下面这样（但请以官网生成的最新命令为准）：
 
 
+conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+将这条命令复制到你的 Anaconda Prompt 中运行。
 
 2.3 安装 YOLOv8
 
